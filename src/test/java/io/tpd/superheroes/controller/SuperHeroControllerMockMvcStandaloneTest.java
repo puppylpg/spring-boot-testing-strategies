@@ -40,7 +40,9 @@ public class SuperHeroControllerMockMvcStandaloneTest {
     @InjectMocks
     private SuperHeroController superHeroController;
 
-    // This object will be magically initialized by the initFields method below.
+    /**
+     * This object will be magically initialized by the {@link JacksonTester#initFields(Object, ObjectMapper)} method below.
+     */
     private JacksonTester<SuperHero> jsonSuperHero;
 
     @BeforeEach
@@ -150,6 +152,8 @@ public class SuperHeroControllerMockMvcStandaloneTest {
 
         // then
         assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
+        // no response body indeed
+        assertThat(response.getContentAsString()).isEqualTo("");
         assertThat(response.getHeaders("X-SUPERHERO-APP")).containsOnly("super-header");
     }
 }

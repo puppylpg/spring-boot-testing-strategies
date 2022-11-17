@@ -36,7 +36,9 @@ public class SuperHeroControllerMockMvcWithContextTest {
     @MockBean
     private SuperHeroRepository superHeroRepository;
 
-    // This object will be initialized thanks to @AutoConfigureJsonTesters
+    /**
+     * This object will be initialized thanks to {@link AutoConfigureJsonTesters}
+     */
     @Autowired
     private JacksonTester<SuperHero> jsonSuperHero;
 
